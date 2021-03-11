@@ -25,10 +25,10 @@ class Entry : AppCompatActivity() {
         setContentView(R.layout.activity_entry)
         app = application as DiaryApp
 
-        toolbarAdd.title = "New Entry"
+        //toolbarAdd.title = "New Entry"
         //setSupportActionBar(toolbarAdd)
 
-        textView.setText("Dear ${app.entries.getName()},")
+        //textView.setText("Dear ${app.entries.getName()},")
 
         if(intent.hasExtra("entry_edit")) {
             edit = true
