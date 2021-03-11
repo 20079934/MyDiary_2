@@ -10,8 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyDiary_2">
-        <activity android:name="com.w20079934.activities.Diary"></activity>
-        <activity android:name="com.w20079934.activities.Entry">
+        <activity android:name="com.w20079934.activities.Entry"></activity>
+        <activity android:name="com.w20079934.activities.Diary">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

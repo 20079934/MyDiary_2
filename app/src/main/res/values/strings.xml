@@ -20,4 +20,5 @@
     <string name="hint_diaryName">Name</string>
     <string name="menu_emptyName">Please enter a name</string>
     <string name="button_renameDiary">Submit Name</string>
+    <string name="feature_notImplemented">Feature not implemented yet!</string>
 </resources>
