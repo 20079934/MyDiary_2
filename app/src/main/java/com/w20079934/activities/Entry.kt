@@ -78,13 +78,15 @@ class Entry : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.cancelEntry -> {
-                setResult(AppCompatActivity.RESULT_CANCELED)
-                finish()
+                startActivity(Intent(this,Diary::class.java))
+                true
+                //setResult(AppCompatActivity.RESULT_CANCELED)
+                //finish()
             }
             R.id.removeEntry -> {
-                app.entries.remove(entry);
-                setResult(AppCompatActivity.RESULT_OK)
-                finish()
+                //app.entries.remove(entry);
+                //setResult(AppCompatActivity.RESULT_OK)
+                //finish()
             }
         }
         return super.onOptionsItemSelected(item)
