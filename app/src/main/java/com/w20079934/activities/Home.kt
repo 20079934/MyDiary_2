@@ -61,7 +61,10 @@ class Home : AppCompatActivity(),
     fun openFragment(id : Int)
     {
         when (id) {
-            R.id.nav_Diary -> navigateTo(DiaryFragment.newInstance())
+            R.id.nav_Diary -> {
+                app.finishEditingEntry()
+                navigateTo(DiaryFragment.newInstance())
+            }
             R.id.nav_newEntry -> {
                 val currDate = LocalDate.now()
                 app.entries.findAll().forEach {
@@ -75,7 +78,10 @@ class Home : AppCompatActivity(),
                 }
                 navigateTo(EntryFragment.newInstance())
             }
-            R.id.nav_renameDiary -> navigateTo(RenameDiaryFragment.newInstance())
+            R.id.nav_renameDiary -> {
+                app.finishEditingEntry()
+                navigateTo(RenameDiaryFragment.newInstance())
+            }
             else -> Toast.makeText(this, getString(R.string.feature_notImplemented), Toast.LENGTH_SHORT).show()
         }
     }
