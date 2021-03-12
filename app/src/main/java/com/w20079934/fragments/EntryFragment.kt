@@ -71,6 +71,7 @@ class EntryFragment : Fragment() {
                     app.entries.create(entry.copy())
                 }
 
+                activity!!.supportFragmentManager.popBackStack()//seems to remove going back to the previous fragment, but still needs a lot of back presses to exit
                 (activity as Home).openFragment(R.id.nav_Diary) // return user back to the diary after submitting it
 
 
