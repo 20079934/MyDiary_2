@@ -41,13 +41,13 @@ class EntryFragment : Fragment() {
         activity?.title = getString(R.string.menu_new_entry)
 
         image = root.entryImage
+        root.textView.setText("Dear ${app.entries.getName()}")
 
         if(app.getCurrEntry()!=null) {
             edit = true
             entry = app.getCurrEntry()!!
             root.entryTopic.setText(entry.topic)
             root.entryEntry.setText(entry.entry)
-            root.textView.setText("Dear ${app.entries.getName()}")
             root.btnAdd.text = getString(R.string.updateEntry)
 
             root.removeEntry.setOnClickListener{
