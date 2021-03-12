@@ -47,6 +47,7 @@ class EntryFragment : Fragment() {
             entry = app.getCurrEntry()!!
             root.entryTopic.setText(entry.topic)
             root.entryEntry.setText(entry.entry)
+            root.textView.setText("Dear ${app.entries.getName()}")
             root.btnAdd.text = getString(R.string.updateEntry)
 
             root.removeEntry.setOnClickListener{
