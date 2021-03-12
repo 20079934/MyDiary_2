@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 import com.w20079934.fragments.DiaryFragment
 import com.w20079934.fragments.EntryFragment
+import com.w20079934.fragments.RenameDiaryFragment
 import com.w20079934.main.DiaryApp
 import com.w20079934.mydiary_2.R
 import kotlinx.android.synthetic.main.app_bar_home.*
@@ -74,6 +75,7 @@ class Home : AppCompatActivity(),
                 }
                 navigateTo(EntryFragment.newInstance())
             }
+            R.id.nav_renameDiary -> navigateTo(RenameDiaryFragment.newInstance())
             else -> Toast.makeText(this, getString(R.string.feature_notImplemented), Toast.LENGTH_SHORT).show()
         }
     }
