@@ -3,15 +3,20 @@ package com.w20079934.fragments
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
+import com.w20079934.activities.Home
 import com.w20079934.helpers.readImageFromPath
 import com.w20079934.helpers.showImagePicker
 import com.w20079934.main.DiaryApp
 import com.w20079934.models.EntryModel
 import com.w20079934.mydiary_2.R
+import kotlinx.android.synthetic.main.content_home.*
+import kotlinx.android.synthetic.main.content_home.view.*
 import kotlinx.android.synthetic.main.fragment_entry.*
 import kotlinx.android.synthetic.main.fragment_entry.view.*
 
@@ -25,8 +30,6 @@ class EntryFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         app = activity?.application as DiaryApp
-
-
 
     }
 
@@ -67,6 +70,8 @@ class EntryFragment : Fragment() {
                     entry.entry = entryEntry.text.toString()
                     app.entries.create(entry.copy())
                 }
+
+                (activity as Home).openFragment(R.id.nav_Diary) // return user back to the diary after submitting it
 
 
             } else {

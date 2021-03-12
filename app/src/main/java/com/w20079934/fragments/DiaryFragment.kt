@@ -49,19 +49,6 @@ class DiaryFragment : Fragment(), EntryListener {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.item_add -> {
-                Toast.makeText(activity, getString(R.string.feature_notImplemented), Toast.LENGTH_LONG).show()
-                true
-            }
-            R.id.diaryRename -> {
-                Toast.makeText(activity, getString(R.string.feature_notImplemented), Toast.LENGTH_LONG).show()
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
     override fun onEntryClick(entry: EntryModel) {
         Toast.makeText(activity, getString(R.string.feature_notImplemented), Toast.LENGTH_SHORT).show()
     }

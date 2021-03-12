@@ -30,11 +30,11 @@ class Home : AppCompatActivity(),
         navView.setNavigationItemSelectedListener(this)
 
         val toggle = ActionBarDrawerToggle(
-                this, drawerLayout, toolbar,
+                this, homeLayout, toolbar,
                 R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close
         )
-        drawerLayout.addDrawerListener(toggle)
+        homeLayout.addDrawerListener(toggle)
         toggle.syncState()
 
         ft = supportFragmentManager.beginTransaction()
@@ -46,13 +46,20 @@ class Home : AppCompatActivity(),
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
-        when (item.itemId) {
+        openFragment(item.itemId)
+
+
+        homeLayout.closeDrawer(GravityCompat.START)
+        return true
+    }
+
+    fun openFragment(id : Int)
+    {
+        when (id) {
             R.id.nav_Diary -> navigateTo(DiaryFragment.newInstance())
             R.id.nav_newEntry -> navigateTo(EntryFragment.newInstance())
             else -> Toast.makeText(this, getString(R.string.feature_notImplemented), Toast.LENGTH_SHORT).show()
         }
-        drawerLayout.closeDrawer(GravityCompat.START)
-        return true
     }
 
     private fun navigateTo(fragment: Fragment) {
@@ -68,8 +75,8 @@ class Home : AppCompatActivity(),
     }
 
     override fun onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START))
-            drawerLayout.closeDrawer(GravityCompat.START)
+        if (homeLayout.isDrawerOpen(GravityCompat.START))
+            homeLayout.closeDrawer(GravityCompat.START)
         else
             super.onBackPressed()
     }
