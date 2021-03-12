@@ -21,7 +21,6 @@ class Home : AppCompatActivity(),
     lateinit var ft: FragmentTransaction
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home)
@@ -80,4 +79,7 @@ class Home : AppCompatActivity(),
         else
             super.onBackPressed()
     }
+
+
+
 }

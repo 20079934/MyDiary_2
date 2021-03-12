@@ -4,13 +4,4 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.w20079934.activities.Entry"
     >
-    <item
-        android:id="@+id/removeEntry"
-        android:title="@string/delete"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/cancelEntry"
-        android:title="@string/cancel"
-        app:showAsAction="always" />
-
 </menu>

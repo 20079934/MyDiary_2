@@ -5,6 +5,7 @@ import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.w20079934.activities.Home
 import com.w20079934.adapters.EntryAdapter
 import com.w20079934.adapters.EntryListener
 import com.w20079934.main.DiaryApp
@@ -50,6 +51,8 @@ class DiaryFragment : Fragment(), EntryListener {
     }
 
     override fun onEntryClick(entry: EntryModel) {
-        Toast.makeText(activity, getString(R.string.feature_notImplemented), Toast.LENGTH_SHORT).show()
+        app.editEntry(entry)
+        activity!!.supportFragmentManager.popBackStack()//seems to remove going back to the previous fragment, but still needs a lot of back presses to exit
+        (activity as Home).openFragment(R.id.nav_newEntry) // return user back to the diary after submitting it
     }
 }

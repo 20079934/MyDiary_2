@@ -78,6 +78,18 @@
                     android:text="@string/button_addEntry"
                     android:textColor="@color/design_default_color_on_primary"
                     android:textSize="16sp" />
+                <Button
+                    android:id="@+id/removeEntry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:background="@color/design_default_color_error"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:stateListAnimator="@null"
+                    android:text="Remove Entry"
+                    android:textColor="@color/design_default_color_on_primary"
+                    android:textSize="16sp" />
             </LinearLayout>
         </ScrollView>
 </FrameLayout>
