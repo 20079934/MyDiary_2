@@ -1,15 +1,18 @@
 package com.w20079934.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import com.w20079934.activities.Home
+import com.w20079934.helpers.readImage
 import com.w20079934.helpers.readImageFromPath
 import com.w20079934.helpers.showImagePicker
 import com.w20079934.main.DiaryApp
@@ -26,6 +29,7 @@ class EntryFragment : Fragment() {
     var entry = EntryModel()
     var edit = false
     val IMAGE_REQUEST=1
+    lateinit var image : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +44,8 @@ class EntryFragment : Fragment() {
 
         val root = inflater.inflate(R.layout.fragment_entry, container, false)
         activity?.title = getString(R.string.menu_new_entry)
+
+        image = root.entryImage
 
         if(activity?.intent?.hasExtra("entry_edit") == true) {
             edit = true
@@ -92,5 +98,17 @@ class EntryFragment : Fragment() {
                 }
     }
 
-
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        Toast.makeText(activity, "trying?", Toast.LENGTH_SHORT).show()
+        when (requestCode) {
+            IMAGE_REQUEST -> {
+                if (data != null) {
+                    entry.image = data.data.toString()
+                    image.setImageBitmap(readImage(activity!!,resultCode,data))
+                    chooseImage.text = getString(R.string.button_changeImage)
+                }
+            }
+        }
+    }
 }

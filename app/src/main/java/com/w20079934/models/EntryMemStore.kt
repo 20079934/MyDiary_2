@@ -1,6 +1,9 @@
 package com.w20079934.models
 
 import android.content.Context
+import java.time.LocalDate
+import java.util.*
+import kotlin.collections.ArrayList
 
 var currID = 0L
 var diaryName = "World"
@@ -22,8 +25,14 @@ class EntryMemStore : EntryStore {
         return entries
     }
 
+    fun getTodaysDate(): Map<String, Int> {
+        val currDate = LocalDate.now()
+        return mapOf<String,Int>("year" to currDate.year, "month" to currDate.monthValue, "day" to currDate.dayOfMonth)
+    }
+
     override fun create(entry: EntryModel) {
         entry.id = getId()
+        entry.date = getTodaysDate()
         entries.add(entry)
     }
 
