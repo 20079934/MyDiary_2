@@ -5,6 +5,11 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_Diary"
+            android:icon="@android:drawable/button_onoff_indicator_on"
+            android:title="Entries"/>
+
+        <item
             android:id="@+id/nav_newEntry"
             android:icon="@android:drawable/ic_menu_add"
             android:title="New Entry"/>
