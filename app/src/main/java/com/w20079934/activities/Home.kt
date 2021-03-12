@@ -12,14 +12,16 @@ import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 import com.w20079934.fragments.DiaryFragment
 import com.w20079934.fragments.EntryFragment
+import com.w20079934.main.DiaryApp
 import com.w20079934.mydiary_2.R
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.home.*
+import java.time.LocalDate
 
 class Home : AppCompatActivity(),
         NavigationView.OnNavigationItemSelectedListener {
     lateinit var ft: FragmentTransaction
-
+    lateinit var app : DiaryApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +37,9 @@ class Home : AppCompatActivity(),
         )
         homeLayout.addDrawerListener(toggle)
         toggle.syncState()
+
+        app = application as DiaryApp
+
 
         ft = supportFragmentManager.beginTransaction()
 
@@ -56,7 +61,19 @@ class Home : AppCompatActivity(),
     {
         when (id) {
             R.id.nav_Diary -> navigateTo(DiaryFragment.newInstance())
-            R.id.nav_newEntry -> navigateTo(EntryFragment.newInstance())
+            R.id.nav_newEntry -> {
+                val currDate = LocalDate.now()
+                app.entries.findAll().forEach {
+                    //if same date
+                    if (it.date.get("day") == currDate.dayOfMonth && it.date.get("month") == currDate.monthValue && it.date.get(
+                            "year"
+                        ) == currDate.year
+                    ) {
+                        app.editEntry(it)
+                    }
+                }
+                navigateTo(EntryFragment.newInstance())
+            }
             else -> Toast.makeText(this, getString(R.string.feature_notImplemented), Toast.LENGTH_SHORT).show()
         }
     }
