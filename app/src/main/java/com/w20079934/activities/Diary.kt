@@ -35,7 +35,7 @@ class Diary : AppCompatActivity(), EntryListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_add -> {
-                startActivity(Intent(this,Entry::class.java))
+                startActivity(Intent(this, Entry::class.java))
                 true
             }
             R.id.diaryRename -> {
