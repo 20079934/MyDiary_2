@@ -26,7 +26,7 @@ class DiaryFragment : Fragment(), EntryListener {
     ): View? {
 
         val root = inflater.inflate(R.layout.fragment_diary, container, false)
-        activity?.title = getString(R.string.hint_diaryName)//TODO get diary name here
+        activity?.title = "Hello ${app.entries.getName()}!"
 
         root.recyclerView.setLayoutManager(LinearLayoutManager(activity))
         root.recyclerView.adapter = EntryAdapter(app.entries.findAll(), this)
